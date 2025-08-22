@@ -1,4 +1,3 @@
-
 class Contact {
     #id;
     #name;
@@ -6,7 +5,7 @@ class Contact {
     constructor(name, phoneNumber){
         this.#id = ++Contact.idAssignation;
         this.#name = name;
-        this.#phoneNumber = this.#verifierPhoneNumbers(phoneNumber);
+        this.#phoneNumber = phoneNumber;
     };
 
     // static properties
@@ -28,22 +27,5 @@ class Contact {
     set phoneNumber(newPhoneNumber){
         this.#phoneNumber = newPhoneNumber;
     };
-
-    // Methods
-    #verifierPhoneNumbers(phoneNumber){
-        if(typeof(phoneNumber) != "number" || phoneNumber.toString().length != 10){
-            throw new Error("There's an error in the number inserted.");
-        }else{
-            return phoneNumber;
-        };
-    };
-
 };
-
-// Proof
-
-const contactOne = new Contact("Jose", 3126699609);
-const contactTwo = new Contact("Jerald", 3127498808);
-const contactThree = new Contact("Jacke", 3042553669);
-
-console.log(contactOne.phoneNumber);
+export default Contact;
